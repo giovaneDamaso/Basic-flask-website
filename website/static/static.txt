@@ -1,0 +1,13 @@
+images
+javascript
+css
+
+files that will be loaded by the html, example:
+
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename= 'index.js')}}
+></script>
+
+    {{ }} -> python expression
+    url_for -> python function
