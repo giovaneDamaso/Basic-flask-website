@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash
 
 auth = Blueprint('auth', __name__)
 
@@ -24,13 +24,18 @@ def sign_up():
         password2 = request.form.get('password2')
 
         if len(email) < 4:
+            flash('Email must be greater than 3 characters.', category='error')
             pass
         elif len(firstName) < 2:
+            flash('First name must be greater than 1 character.', category='error')
             pass
         elif password1 != password2:
+            flash("Passwords don't match.", category='error')
             pass
-        elif (password1) < 7:
+        elif len(password1) < 7:
+            flash('Password must be at least 7 characters.', category='error')
             pass
         else:
+            flash('Account Created!', category='success')
             return render_template("sign_up.html")
     return render_template("sign_up.html")
