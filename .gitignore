@@ -1,4 +1,4 @@
 .vscode
 website/__pycache__
-instance\database.db
+instance/database.db
 website/database.db
